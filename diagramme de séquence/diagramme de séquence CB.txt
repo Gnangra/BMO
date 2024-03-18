@@ -1,0 +1,15 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Sequence Diagram"] {
+  actor Parieur
+
+  lifeline "WinnerBet" as auth autoactivate
+  
+  Parieur --> auth "1: Saisir montant jetons "
+  auth -r-> Parieur "2: Demande carte bancaire"
+ 
+  
+  Parieur --> auth "3: Saisir données bancaire "
+  auth -r-> auth "4: Verification de données"
+  auth -r-> Parieur "5: Mauvaise carte bancaire"
+ 
+  
+}

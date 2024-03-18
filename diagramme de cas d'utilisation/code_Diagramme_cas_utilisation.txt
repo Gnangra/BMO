@@ -1,0 +1,17 @@
+UseCaseDiagram [frame=true framecolor=steelblue label="Usecase Diagram"] {
+  actor a as " Parieur"
+  actor b as " Bookmaker"
+  actor c as " Source tier"
+  usecase u1 as "Gérer son compte "
+  usecase u2 as " Gérer ses paris "
+  usecase v1 as "Fournir les informations "
+  usecase v2 as " Choisir les évènements "
+  
+  
+  a -- u1
+  a -- u2
+  b -- v2
+  b -- u1
+  c -- v1
+ 
+}

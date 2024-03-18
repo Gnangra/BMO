@@ -1,0 +1,32 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Sequence Diagram"] {
+  actor Parieur
+
+  lifeline "WinnerBet" as auth autoactivate
+  
+  Parieur --> auth "1: Demande de modification de compte"
+  auth -r-> Parieur "2: Paage correspondante"
+  
+ 
+  Parieur --> auth "3: Saisir nouveau mot de passe"
+  note left "Si mot de passe modifier"
+  auth --> auth " 4: modification de mot de passe "
+  auth -r-> Parieur "5: Votre mot de passe a bien été modifié"
+ 
+  auth -r-> Parieur "6: Paage correspondante"
+  Parieur --> auth "7: Saisir montant du jeton"
+  note left " Sinon si crediter jetons()"
+  auth -r-> Parieur "8: Demande carte bancaire"
+  
+  
+   Parieur --> auth "9: Saisir des données bancaires"
+   auth --> auth "10: Verif des donnée"
+   auth --> Parieur "11: jetons Facturer"
+   auth --> auth "12: ajout de jetons"
+  auth -r-> Parieur "13: Vos jetons ont bien été crédités"
+ 
+   Parieur --> auth "14: Somme à retirer"
+   note left " Sinon si rétirer jetons()"
+   auth --> auth "15: Verif crédit"
+  auth -r-> Parieur "16: crediter"
+  
+}

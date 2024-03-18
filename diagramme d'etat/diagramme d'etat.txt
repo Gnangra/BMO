@@ -1,0 +1,15 @@
+StateDiagram [frame=true framecolor=steelblue label="State Diagram" splines=ortho] {
+  state crée
+  state en_cours
+  state annulé
+  state succès
+  state échèc
+  initialState->crée "débiter parieur"
+  crée -> en_cours "[évènement commençé]"
+  crée -> annulé "[paris annulé]"
+  en_cours -> succès "[résultat obtenu]"
+  en_cours ->échèc  "[résultat obtenu]"
+  succès -> finalstate "créditer parieur"
+  annulé -> finalstate "rembourser parieur"
+  échèc -> finalstate
+}

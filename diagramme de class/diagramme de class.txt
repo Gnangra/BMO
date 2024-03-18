@@ -1,0 +1,141 @@
+ClassDiagram [frame=true framecolor=steelblue label="Class Diagram"] {
+ 
+  // les class
+  
+ class Sport {
+ 	 private idSport 
+ 	 private nomSport
+   public getIdSporrt()
+   public setIdSport()
+   public getNomSport()
+   public setNomSport()  
+ }
+  class Evenement {
+   private idEvenement
+ 	 private nom 
+   private dateDebut 
+    
+   public getIdEvenement()
+   public setIdEvenement()
+   public getNom()
+   public setNom()  
+   public getDateDebut()
+   public setDateDebut()
+   public getIdSporrt()
+ }
+  class DetailsEvenement{
+    private cotes
+    private ecartScores
+    
+    public getCotes()
+    public setCotes()
+    public getEcartScores()
+    public setEcartScores()  
+  }
+  class DetailsParis{
+    private montantMaximal
+    private plafondDeGains
+    
+    public getMontantMaximal()
+    public setMontantMaximal()
+    public getPlafondDeGains()
+    public setPlafondDeGains()
+    public getEvenementAssocie()
+    public getListeParisDesEvenement()  
+  }
+  
+  class Paris{
+  	private idParis
+    private Gagnés : booléan
+    private coteParis 
+    private montantParié
+    private étatParis
+    
+    public getIdParis()
+    public setIdParis()
+    public DébiterParieur()
+    public CréditerParieur()
+    public getGagnés()
+    public setGagnés()
+    public getMontantParié()
+    public setMontantParié()
+    public getTypeParis()
+    public setTypeParis()
+  }
+  class Parieur{
+    private idParieur
+    private nom
+    private prenom
+    private capitalJeton
+    private numCompte
+    private mail
+    private motPasse
+    
+    public getIdParieur()
+    public setIdParieur()
+    public getNom()
+    public setNom()
+    public getPrenom()
+    public setPrenom()
+    public getCapitalJeton()
+    public setCapitalJeton()
+    public getNumCompte()
+    public setNumCompte()
+    public getMail()
+    public setmail()
+    public getMotPasse()
+    public setMotPasse()
+    public CrediterJeton()
+    public CreerUnParis()
+    public RetirerArgent() 
+  }
+    class typeParis {
+ 	 private idTypeParis 
+ 	
+   public getIdTypeParis ()
+   public setIdTypeParis ()
+   public getIdSport()
+   public getSimpleOuAvance()  
+   public setSimpleOuAvance()  
+
+ }
+   class ReglesFoot {
+   public getRegles()
+   public setRegles()
+ }
+   class reglesCoursesChevaux {
+   public getRegles()
+   public setRegles()
+ }
+   class ReglesBasket {
+   public getRegles()
+   public setRegles()
+ }
+  class ReglesTennis {
+   public getRegles()
+   public setRegles()
+ 	}
+   class Simple{ 
+  }
+   class Avance{  
+  }
+  
+  // les relations et cardinalités
+  
+  Evenement "+1" -- "+1" DetailsParis : "Depend"
+  Evenement "+0..n" -- "+1..1" Sport : "Correspondre"
+  DetailsParis "+1" -- "+1..n" Paris : "Definir"
+  Paris "+0..n" -- "+1" Parieur : "Effectuer"
+  typeParis "+1" -- "+0..n" Paris : "Definir"
+  
+  ReglesTennis -g-> Sport
+  ReglesBasket -g-> Sport
+  ReglesFoot -g-> Sport
+  reglesCoursesChevaux -g-> Sport
+  DetailsEvenement -g-> Evenement
+  
+  typeParis "+1..*" -c-> "+1" Sport
+  
+ Simple -g-> typeParis
+ Avance -g-> typeParis
+}

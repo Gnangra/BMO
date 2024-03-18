@@ -1,0 +1,10 @@
+SequenceDiagram [frame=true framecolor=steelblue label="Sequence Diagram"] {
+  actor Parieur
+
+  lifeline "WinnerBet" as auth autoactivate
+  
+  Parieur --> auth "1: Saisir nouveau mot de passe "
+  auth --> auth "verification de mot de passe"
+  auth -r-> Parieur "2: Mot de passe invalide"
+  
+}
